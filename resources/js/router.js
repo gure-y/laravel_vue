@@ -5,6 +5,7 @@ import About from './views/About.vue'
 import NotFound from './views/Notfound.vue'
 import User from './views/User.vue'
 import UserDetail from './views/UserDetail.vue'
+import UserEdit from './views/UserEdit.vue'
 
 export default new Router({
   mode: 'history',
@@ -32,6 +33,11 @@ export default new Router({
       path: '/user/:id',
       name: 'user_detail',
       component: UserDetail
+    },
+    {
+      path: '/user/:id/edit',
+      name: 'user_edit',
+      component: UserEdit
     },
   ]
 });
