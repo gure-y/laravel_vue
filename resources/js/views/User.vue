@@ -2,7 +2,10 @@
 <div>
 	<h1>USER LIST!</h1>
 	<ul>
-		<li v-for="user in users" v-text="user.name" v-bind:key="user.id"></li>
+		<li v-for="user in users" v-bind:key="user.id">
+      {{ user.name }}
+      <router-link :to="`/user/${user.id}`">詳細</router-link>
+    </li>
 	</ul>
 </div>
 </template>
