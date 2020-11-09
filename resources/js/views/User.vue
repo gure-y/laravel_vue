@@ -5,6 +5,7 @@
 		<li v-for="user in users" v-bind:key="user.id">
       {{ user.name }}
       <router-link :to="`/user/${user.id}`">詳細</router-link>
+      <router-link :to="`/user/${user.id}/edit`">更新</router-link>
     </li>
 	</ul>
 </div>
