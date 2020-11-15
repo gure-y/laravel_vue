@@ -1,6 +1,7 @@
 <template>
 <div>
 	<h1>USER LIST!</h1>
+    <router-link class="btn btn-primary" to="/user/create">作成</router-link>
 	<ul>
 		<li v-for="(user, index) in users" v-bind:key="user.id" class="mb-1">
       {{ user.name }}
