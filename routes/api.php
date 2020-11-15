@@ -18,6 +18,10 @@ Route::get('/user', function (Request $request) {
     $users = App\Models\User::all();
     return response()->json(['users' =>$users]);
 });
+Route::post('/user', function(Request $request){
+    $user = App\Models\User::create($request->user);
+    return response()->json(['user' => $user]);
+});
 Route::get('/user/{user}', function (App\Models\User $user) {
     return response()->json(['user' =>$user]);
 });
