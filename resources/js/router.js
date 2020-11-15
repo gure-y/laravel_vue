@@ -6,6 +6,7 @@ import NotFound from './views/Notfound.vue'
 import User from './views/User.vue'
 import UserDetail from './views/UserDetail.vue'
 import UserEdit from './views/UserEdit.vue'
+import UserCreate from './views/UserCreate.vue'
 
 export default new Router({
   mode: 'history',
@@ -28,6 +29,11 @@ export default new Router({
       path: '/user',
       name: 'user',
       component: User
+    },
+    {
+      path: '/user/create',
+      name: 'user_create',
+      component: UserCreate
     },
     {
       path: '/user/:id',
