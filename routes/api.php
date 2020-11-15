@@ -25,3 +25,7 @@ Route::patch('/user/{user}', function(App\Models\User $user, Request $request){
     $user->update($request->user);
     return response()->json(['user' => $user]);
 });
+Route::delete('/user/{user}', function(App\Models\User $user){
+    $user->delete();
+    return response()->json(['message' => 'delete successfully']);
+});

@@ -2,10 +2,11 @@
 <div>
 	<h1>USER LIST!</h1>
 	<ul>
-		<li v-for="user in users" v-bind:key="user.id">
+		<li v-for="(user, index) in users" v-bind:key="user.id" class="mb-1">
       {{ user.name }}
-      <router-link :to="`/user/${user.id}`">詳細</router-link>
-      <router-link :to="`/user/${user.id}/edit`">更新</router-link>
+      <router-link class="btn btn-success" :to="`/user/${user.id}`">詳細</router-link>
+      <router-link class="btn btn-primary" :to="`/user/${user.id}/edit`">更新</router-link>
+      <span class="btn btn-danger" @click="userDelete(index, user.id)">削除</span>
     </li>
 	</ul>
 </div>
@@ -18,6 +19,15 @@
 				users:[],
 			}
 		},
+    methods:{
+      userDelete(index, id){
+        axios.delete('/api/user/' + id)
+          .then(response => {
+            this.users.slice(id, 1)
+          })
+          .catch(error => console.log(error));
+      },
+    },
 		created(){
 			axios.get('/api/user')
 				.then(response=>{
@@ -28,4 +38,4 @@
 				});
 		}
 	}
-</script>;
+</script>
